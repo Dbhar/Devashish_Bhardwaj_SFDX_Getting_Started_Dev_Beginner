@@ -174,9 +174,13 @@
     <tab>standard-Opportunity</tab>
     <tab>standard-Lead</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>Class__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>

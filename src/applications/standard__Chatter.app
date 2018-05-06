@@ -8,4 +8,5 @@
     <tab>standard-CollaborationGroup</tab>
     <tab>standard-File</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
 </CustomApplication>

@@ -5,4 +5,5 @@
     <tab>Student__c</tab>
     <tab>Class__c</tab>
     <tab>standard-Contact</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
 </CustomApplication>
