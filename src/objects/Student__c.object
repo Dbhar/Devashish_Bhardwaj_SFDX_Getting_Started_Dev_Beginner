@@ -188,4 +188,11 @@
     <pluralLabel>Students</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>DateOfBirthShouldNotGreaterToday</fullName>
+        <active>true</active>
+        <errorConditionFormula>TODAY() &lt; DOB__c</errorConditionFormula>
+        <errorDisplayField>DOB__c</errorDisplayField>
+        <errorMessage>Date Of Birth Should Not Be Greater Than Today</errorMessage>
+    </validationRules>
 </CustomObject>
