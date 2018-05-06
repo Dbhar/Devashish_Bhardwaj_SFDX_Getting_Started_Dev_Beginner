@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Teach</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Teach</value>
+    </caseValues>
+    <fields>
+        <label><!-- Class --></label>
+        <name>Class__c</name>
+        <relationshipLabel><!-- Teacher --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindi</masterLabel>
+            <translation><!-- Hindi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Math</masterLabel>
+            <translation><!-- Math --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Science</masterLabel>
+            <translation><!-- Science --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Teacher --></label>
+        <name>Teacher__c</name>
+        <relationshipLabel><!-- Classes --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

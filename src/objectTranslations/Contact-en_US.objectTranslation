@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Teacher</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Teachers</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Access</value>
+        </caseValues>
+        <name>contact_access</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Access Level</value>
+        </caseValues>
+        <name>contact_access_level</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Account</value>
+        </caseValues>
+        <name>contact_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Currency</value>
+        </caseValues>
+        <name>contact_currency</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Description</value>
+        </caseValues>
+        <name>contact_description</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Division</value>
+        </caseValues>
+        <name>contact_division</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Edit</value>
+        </caseValues>
+        <name>contact_edit</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Email</value>
+        </caseValues>
+        <name>contact_email</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Fax</value>
+        </caseValues>
+        <name>contact_fax</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Field</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Fields</value>
+        </caseValues>
+        <name>contact_field</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher History</value>
+        </caseValues>
+        <name>contact_history</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher History Report</value>
+        </caseValues>
+        <name>contact_history_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher ID</value>
+        </caseValues>
+        <name>contact_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Information</value>
+        </caseValues>
+        <name>contact_information</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Mobile</value>
+        </caseValues>
+        <name>contact_mobile</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Name</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Names</value>
+        </caseValues>
+        <name>contact_name</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Note</value>
+        </caseValues>
+        <name>contact_note</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Number</value>
+        </caseValues>
+        <name>contact_number</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Owner</value>
+        </caseValues>
+        <name>contact_owner</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Owner Alias</value>
+        </caseValues>
+        <name>contact_owner_alias</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Phone</value>
+        </caseValues>
+        <name>contact_phone</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Record</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Records</value>
+        </caseValues>
+        <name>contact_record</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Record Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Record Types</value>
+        </caseValues>
+        <name>contact_record_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Reports To Teacher</value>
+        </caseValues>
+        <name>contact_reports_to</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Role</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Roles</value>
+        </caseValues>
+        <name>contact_role</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Role ID</value>
+        </caseValues>
+        <name>contact_role_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Role Report</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Role Reports</value>
+        </caseValues>
+        <name>contact_role_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Stage ID</value>
+        </caseValues>
+        <name>contact_stage_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Status</value>
+        </caseValues>
+        <name>contact_status</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Types</value>
+        </caseValues>
+        <name>contact_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teacher View</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Teacher Views</value>
+        </caseValues>
+        <name>contact_view</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Experience --></label>
+        <name>Experience__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subjects --></label>
+        <name>Subjects__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindi</masterLabel>
+            <translation><!-- Hindi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maths</masterLabel>
+            <translation><!-- Maths --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Science</masterLabel>
+            <translation><!-- Science --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
