@@ -3,4 +3,5 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <tab>standard-Chatter</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
 </CustomApplication>

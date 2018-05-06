@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Case.Standard</members>
-        <members>Lead.Standard</members>
-        <name>AssignmentRule</name>
-    </types>
-    <types>
-        <members>unfiled$public</members>
-        <members>unfiled$public/MarketingProductInquiryResponse</members>
-        <members>unfiled$public/SalesNewCustomerEmail</members>
-        <members>unfiled$public/SupportCaseAssignmentNotification</members>
-        <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
-        <members>unfiled$public/SupportCaseCreatedWebInquiries</members>
-        <members>unfiled$public/SupportCaseResponse</members>
-        <members>unfiled$public/SupportEscalatedCaseNotification</members>
-        <members>unfiled$public/SupportEscalatedCaseReassignment</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
-        <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
-        <members>unfiled$public/SupportSelfServiceResetPassword</members>
-        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
-        <name>EmailTemplate</name>
-    </types>
-    <types>
-        <members>Case.Standard</members>
-        <name>EscalationRule</name>
-    </types>
-    <types>
         <members>ApexDevNet</members>
         <name>RemoteSiteSetting</name>
     </types>
@@ -37,10 +11,6 @@
     <types>
         <members>*</members>
         <name>ApexClass</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexComponent</name>
     </types>
     <types>
         <members>*</members>
@@ -56,31 +26,7 @@
     </types>
     <types>
         <members>*</members>
-        <name>AppMenu</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>ApprovalProcess</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuthProvider</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CallCenter</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Community</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ConnectedApp</name>
     </types>
     <types>
         <members>*</members>
@@ -88,15 +34,7 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomApplicationComponent</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>CustomLabels</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomMetadata</name>
     </types>
     <types>
         <members>Account</members>
@@ -160,39 +98,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomObjectTranslation</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>CustomPageWebLink</name>
     </types>
     <types>
         <members>*</members>
-        <name>CustomPermission</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomSite</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>CustomTab</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>DataCategoryGroup</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Flow</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Group</name>
     </types>
     <types>
         <members>*</members>
@@ -208,10 +118,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>Letterhead</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>PermissionSet</name>
     </types>
     <types>
@@ -221,10 +127,6 @@
     <types>
         <members>*</members>
         <name>Profile</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Queue</name>
     </types>
     <types>
         <members>*</members>
@@ -240,31 +142,28 @@
     </types>
     <types>
         <members>*</members>
-        <name>SamlSsoConfig</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Scontrol</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Settings</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>SharingSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>SiteDotCom</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>StaticResource</name>
     </types>
     <types>
         <members>*</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>unfiled$public</members>
+        <members>unfiled$public/MarketingProductInquiryResponse</members>
+        <members>unfiled$public/SalesNewCustomerEmail</members>
+        <members>unfiled$public/SupportCaseAssignmentNotification</members>
+        <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
+        <members>unfiled$public/SupportCaseCreatedWebInquiries</members>
+        <members>unfiled$public/SupportCaseResponse</members>
+        <members>unfiled$public/SupportEscalatedCaseNotification</members>
+        <members>unfiled$public/SupportEscalatedCaseReassignment</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
+        <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
+        <members>unfiled$public/SupportSelfServiceResetPassword</members>
+        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+        <name>EmailTemplate</name>
     </types>
     <version>38.0</version>
 </Package>

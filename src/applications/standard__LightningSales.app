@@ -21,5 +21,6 @@
     <tab>standard-Case</tab>
     <tab>standard-Forecasting3</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
     <uiType>Lightning</uiType>
 </CustomApplication>

@@ -10,4 +10,5 @@
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
 </CustomApplication>

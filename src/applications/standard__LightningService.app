@@ -9,6 +9,7 @@
     <tab>standard-Dashboard</tab>
     <tab>standard-home</tab>
     <tab>Class__c</tab>
+    <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
 </CustomApplication>
