@@ -78,6 +78,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>ClassName__c</fullName>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ClassTeacher__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -131,16 +141,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Name</label>
-        <length>50</length>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>NumberOfStudents__c</fullName>
         <externalId>false</externalId>
         <label>Number Of Students</label>
@@ -153,7 +153,7 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Name__c</columns>
+        <columns>ClassName__c</columns>
         <columns>ClassTeacher__c</columns>
         <columns>NumberOfStudents__c</columns>
         <columns>MaxSize__c</columns>
@@ -168,11 +168,11 @@
     </nameField>
     <pluralLabel>Classes</pluralLabel>
     <searchLayouts>
-        <lookupDialogsAdditionalFields>Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClassName__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ClassTeacher__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Board__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Board__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ClassName__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ClassTeacher__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
