@@ -187,6 +187,21 @@
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Next_Birthday__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Birthdate &lt; TODAY(),
+   IF(DATE(YEAR(TODAY()), MONTH(Birthdate), DAY(Birthdate)) &gt; TODAY(),
+      DATE(YEAR(TODAY()), MONTH(Birthdate), DAY(Birthdate)),
+      DATE(YEAR(TODAY()) + 1, MONTH(Birthdate), DAY(Birthdate))
+   ),
+   Birthdate
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Next Birthday</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>OtherAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>

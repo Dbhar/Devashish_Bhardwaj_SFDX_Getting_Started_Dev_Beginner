@@ -1,0 +1,1 @@
+Hi {!Student__c.FirstName__c} your Record Has been updated You are in class {!Class__c.ClassName__c} taught by {!Class__c.ClassTeacher__c}
