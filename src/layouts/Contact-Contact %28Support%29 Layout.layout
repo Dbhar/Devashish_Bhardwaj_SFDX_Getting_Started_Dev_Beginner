@@ -32,6 +32,10 @@
                 <behavior>Edit</behavior>
                 <field>Experience__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Next_Birthday__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -379,7 +383,7 @@
         <relatedList>Class__c.ClassTeacher__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Class__c.Name__c</fields>
+        <fields>Class__c.ClassName__c</fields>
         <fields>Class__c.MyCount__c</fields>
         <fields>Subject__c</fields>
         <relatedList>Teach__c.Teacher__c</relatedList>
