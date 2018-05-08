@@ -1,0 +1,29 @@
+//Write SOQL Select all student Name,Dob,Sex where LastName starts with “S”
+SELECT FirstName__c, LastName__c, DOB__c, Sex__c FROM Student__c WHERE LastName__c LIKE 'S%'
+
+//Select All students where ClassName starts with “X”
+SELECT Id, FirstName__c, LastName__c, Class__r.ClassName__c FROM Student__c WHERE Class__r.ClassName__c LIKE 'X%'
+
+//Select all Student and ClassName
+SELECT Id, FirstName__c, LastName__c, Class__r.ClassName__c FROM Student__c
+
+//Select all Classes with students in every class as sub query
+SELECT Id, ClassName__c, (SELECT FirstName__c, LastName__c FROM Students__r) FROM Class__c
+
+//Select all students where class teacher name starts with “S”
+SELECT Id, FirstName__c, LastName__c, Class__r.Name, Class__r.ClassTeacher__r.Name FROM Student__c WHERE Class__r.ClassTeacher__r.Name LIKE 'S%'
+
+//All students where DOB > Year 2000
+SELECT FirstName__c, LastName__c, DOB__c FROM Student__c WHERE CALENDAR_YEAR(DOB__c) > 2000
+
+//All Leads Where ModifiedDate in current month
+SELECT Id, Name, LastModifiedDate FROM Lead WHERE LastModifiedDate = THIS_MONTH
+
+//All Classes with Students as sub query where student Name Starts with "S"
+SELECT Id, ClassName__c, (SELECT FirstName__c, LastName__c FROM Students__r WHERE LastName__c LIKE 'S%') FROM Class__c WHERE Id IN (SELECT Class__c FROM Student__c WHERE LastName__c LIKE 'S%')
+
+//All Teachers who have Hindi and English both subjects
+SELECT Name, Subjects__c FROM Contact WHERE Subjects__c INCLUDES ('Hindi;English')
+
+//All students who have hindi or maths
+SELECT Id, FirstName__c, LastName__c, Class__r.Name, Class__r.ClassTeacher__r.Subjects__c FROM Student__c WHERE Class__r.ClassTeacher__r.Subjects__c INCLUDES('Hindi') OR Class__r.ClassTeacher__r.Subjects__c INCLUDES('Maths')
