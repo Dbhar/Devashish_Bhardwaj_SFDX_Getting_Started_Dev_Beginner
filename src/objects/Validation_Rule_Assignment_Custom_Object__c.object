@@ -106,16 +106,9 @@
     <validationRules>
         <fullName>CreditCardNumberFormatShouldBeCorrect</fullName>
         <active>true</active>
-        <errorConditionFormula>NOT(REGEX(Credit_Card_Number__c,&apos;(((\\d{4}-){3}\\d{4})|\\d{16})&apos;))</errorConditionFormula>
+        <errorConditionFormula>NOT(OR(ISBLANK(Credit_Card_Number__c),      REGEX(Credit_Card_Number__c,&apos;(((\\d{4}-){3}\\d{4})|\\d{16})&apos;)))</errorConditionFormula>
         <errorDisplayField>Credit_Card_Number__c</errorDisplayField>
-        <errorMessage>Credit Card Number Should be in the format 9999-9999-9999-9999 or 9999999999999999</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Mix_PCT_Value</fullName>
-        <active>true</active>
-        <errorConditionFormula>MOD(Multiple_Of_5__c, 5)  &lt;&gt; 0</errorConditionFormula>
-        <errorDisplayField>Multiple_Of_5__c</errorDisplayField>
-        <errorMessage>The value in this field should be a multiple of 5</errorMessage>
+        <errorMessage>Credit Card Number Should be blank or it should be in the format 9999-9999-9999-9999 or 9999999999999999</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mix_PCT_Value_should_be_a_valid_percent</fullName>
