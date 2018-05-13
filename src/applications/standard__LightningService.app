@@ -10,6 +10,10 @@
     <tab>standard-home</tab>
     <tab>Class__c</tab>
     <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
+    <tab>Loan__c</tab>
+    <tab>CityManager__c</tab>
+    <tab>Account_Filter</tab>
+    <tab>Account_Filter_With_Pagination</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
 </CustomApplication>

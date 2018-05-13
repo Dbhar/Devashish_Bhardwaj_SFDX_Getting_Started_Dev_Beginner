@@ -1,0 +1,45 @@
+<apex:page controller="ManageClassesController">
+    <apex:form >
+        <apex:pageBlock title="classes" id="records">
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!classes}" var="class">
+                    <apex:column >
+                        <apex:commandLink action="{!edit}" reRender="recordToEdit">
+                            <apex:param value="{!class.Id}" name="recordId" assignTo="{!recordId}"/>
+                            Edit
+                        </apex:commandLink>
+                        &nbsp;
+                        <apex:commandLink action="{!deleteRecord}" reRender="records" >
+                            delete
+                            <apex:param value="{!class.Id}" name="recordId" assignTo="{!recordId}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column value="{!class.ClassName__c}"/>
+                    <apex:column value="{!class.Fee__c}"/>
+                    <apex:column value="{!class.Board__c}"/>
+                    <apex:column value="{!class.MaxSize__c}"/>
+                    <apex:column value="{!class.ClassTeacher__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>    
+    <apex:form id="recordToEdit">
+        <apex:pageBlock rendered="{!isRecordBeingEdited}">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRecord}" value="save" reRender="recordToEdit">
+                    <apex:actionSupport reRender="records" />
+                </apex:commandButton> 
+                <apex:commandButton action="{!cancel}" value="cancel" reRender="recordToEdit">
+                    <apex:actionSupport reRender="records"/>
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!mockClass.ClassName__c}"/>
+                <apex:inputField value="{!mockClass.Fee__c}"/>
+                <apex:inputField value="{!mockClass.Board__c}"/>
+                <apex:inputField value="{!mockClass.MaxSize__c}"/>
+                <apex:inputField value="{!mockClass.ClassTeacher__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

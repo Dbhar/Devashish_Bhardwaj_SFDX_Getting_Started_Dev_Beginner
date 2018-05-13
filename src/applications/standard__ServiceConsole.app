@@ -175,9 +175,25 @@
     <tab>standard-Lead</tab>
     <tab>Class__c</tab>
     <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
+    <tab>Loan__c</tab>
+    <tab>CityManager__c</tab>
+    <tab>Account_Filter</tab>
+    <tab>Account_Filter_With_Pagination</tab>
     <workspaceMappings>
         <mapping>
+            <tab>Account_Filter</tab>
+        </mapping>
+        <mapping>
+            <tab>Account_Filter_With_Pagination</tab>
+        </mapping>
+        <mapping>
+            <tab>CityManager__c</tab>
+        </mapping>
+        <mapping>
             <tab>Class__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Loan__c</tab>
         </mapping>
         <mapping>
             <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
