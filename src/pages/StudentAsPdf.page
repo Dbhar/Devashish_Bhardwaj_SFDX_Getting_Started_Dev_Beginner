@@ -1,0 +1,21 @@
+<apex:page standardController="Student__c" extensions="StudentAsPDFExtension">
+    <apex:form >
+    	<apex:pageBlock >
+        	<apex:pageBlockSection id="section1" columns="1">
+                <apex:outputField value="{!Student__c.FirstName__c}" label="First Name :    "/>
+                <apex:outputField value="{!Student__c.LastName__c}" label="Last Name :     "/>
+                <apex:outputField value="{!Student__c.DOB__c}" label="Date of Birth :    " />
+                <apex:outputField value="{!Student__c.Age__c}" label="Age :    "/>
+                <apex:outputField value="{!Student__c.Married__c}" label="Married :    "/>
+                <apex:outputField value="{!Student__c.WifeName__c}" label="Wife Name :    "/>
+                <apex:outputField value="{!Student__c.Class__r.ClassName__c}" label="Class Name :    "/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:actionFunction name="SavePDF" action="{!saveAsPDF}"/>
+    </apex:form>
+    <script>
+    	document.addEventListener('DOMContentLoaded', function(event){
+            SavePDF();
+    	});
+    </script>
+</apex:page>

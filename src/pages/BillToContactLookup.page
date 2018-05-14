@@ -1,0 +1,46 @@
+<apex:page controller="BillToContactLookupController" showChat="false" showHeader="false" sidebar="false" showQuickActionVfHeader="false">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="save" action="{!save}"/>
+            	<apex:commandButton value="clear" action="{!clear}"/>
+            	<apex:commandButton value="cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" collapsible="true">
+               <!-- <apex:selectRadio value="{!selectedContactId}" layout="pageDirection">
+                    <apex:selectOptions value = "{!options}"/>
+                </apex:selectRadio>-->
+                <apex:pageBlockTable value="{!contacts}" var="con" columns="4" align="center" width="100%">
+                    <apex:column breakBefore="true" >
+                        <input type="radio" value="{!con.Id}" id="{!con.Id}" class="radioButton" name="selectContact" onclick="selectOption(this, '{!$Component.radioButtonValue}')"/>
+                    </apex:column>
+                    <apex:column value="{!con.Name}"/>
+                    <apex:column value="{!con.Subjects__c}"/>
+                    <apex:column value="{!con.Account.Name}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:inputHidden value="{!selectedContactId}" id="radioButtonValue"/>
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+    	function selectOption(input, selectorId){
+            el = document.getElementById(selectorId);
+            el.value = input.value;
+            console.log(el.value);
+        }
+    
+    	document.addEventListener('DOMContentLoaded', function(event){
+            console.log("ent");
+            selectedRadioButtonValue = document.querySelectorAll("[name*='radioButtonValue']")[0].value;
+            console.log(selectedRadioButtonValue);
+            radioButtons = document.querySelectorAll("[class='radioButton']");
+            console.log(radioButtons);
+            for(i=0; i < radioButtons.length; i++){
+      			console.log(radioButtons[i].value);
+                if(radioButtons[i].value == selectedRadioButtonValue){
+                    radioButtons[i].checked = "checked";
+                }    
+            }    
+        });    
+    </script>    
+</apex:page>
