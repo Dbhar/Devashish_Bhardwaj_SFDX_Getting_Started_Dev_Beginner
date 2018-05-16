@@ -240,7 +240,7 @@
     <fields>
         <fullName>Select_Bill_To_Contact__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&quot;/apex/BillToContactLookup?oppId=&quot;&amp;Id, &quot;Bill To Contact Lookup&quot;, &quot;_self&quot; )</formula>
+        <formula>HYPERLINK(&quot;/apex/BillToContactLookup?oppId=&quot;&amp;Id, &quot;Bill To Contact Lookup&quot;, &quot;_blank&quot; )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Select Bill To Contact</label>
         <required>false</required>

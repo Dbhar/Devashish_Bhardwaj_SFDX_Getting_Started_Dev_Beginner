@@ -321,6 +321,7 @@
         <fields>UnitPrice</fields>
         <fields>ServiceDate</fields>
         <fields>Description</fields>
+        <fields>TotalPrice</fields>
         <relatedList>RelatedLineItemList</relatedList>
     </relatedLists>
     <relatedLists>

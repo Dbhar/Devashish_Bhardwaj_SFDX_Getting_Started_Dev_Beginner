@@ -10,4 +10,7 @@
     <tab>CityManager__c</tab>
     <tab>Account_Filter</tab>
     <tab>Account_Filter_With_Pagination</tab>
+    <tab>Manage_Classes</tab>
+    <tab>Purchase_Order__c</tab>
+    <tab>Item__c</tab>
 </CustomApplication>

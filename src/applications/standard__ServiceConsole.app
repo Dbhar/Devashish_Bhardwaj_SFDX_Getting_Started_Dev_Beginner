@@ -179,6 +179,8 @@
     <tab>CityManager__c</tab>
     <tab>Account_Filter</tab>
     <tab>Account_Filter_With_Pagination</tab>
+    <tab>Purchase_Order__c</tab>
+    <tab>Item__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>Account_Filter</tab>
@@ -193,7 +195,13 @@
             <tab>Class__c</tab>
         </mapping>
         <mapping>
+            <tab>Item__c</tab>
+        </mapping>
+        <mapping>
             <tab>Loan__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Purchase_Order__c</tab>
         </mapping>
         <mapping>
             <tab>Validation_Rule_Assignment_Custom_Object__c</tab>
