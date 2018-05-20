@@ -95,15 +95,16 @@
     </fields>
     <fields>
         <fullName>Purchase_Order__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Purchase Order</label>
         <referenceTo>Purchase_Order__c</referenceTo>
         <relationshipLabel>Purchase Order Line Items</relationshipLabel>
         <relationshipName>Purchase_Order_Line_Items</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Quantity__c</fullName>
@@ -149,5 +150,5 @@
     </nameField>
     <pluralLabel>Purchase Order Line Items</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

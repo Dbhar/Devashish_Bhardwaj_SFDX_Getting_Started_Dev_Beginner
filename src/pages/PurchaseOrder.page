@@ -1,8 +1,16 @@
-<apex:page controller="PurchaseOrderController" showChat="false" showHeader="false" sidebar="false" standardStylesheets="true">
+<apex:page docType="html-5.0" controller="PurchaseOrderController" showChat="false" showHeader="false" sidebar="false" standardStylesheets="true">
+   
+    
     <apex:stylesheet value="{!
                             URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap-namespaced.css')}"/>
     <apex:form >
         <apex:pageBlock >
+            <apex:actionStatus id="processing" startText="" stopText="" onStart="document.body.style.cursor = 'wait'; return true;" onStop="document.body.style.cursor = 'default';return true;"/>
+            <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="save"/>
+                    <apex:commandButton action="{!cancel}" value="cancel"/>
+                	<apex:commandButton action="{!deleteOrder}" value="delete order"/>
+            </apex:pageBlockButtons>
             <apex:pageBlockSection columns="1" title="Purchase Order Details">
                 <apex:outputField value="{!purchaseOrder.Name}"/>
                 <apex:outputField value="{!purchaseOrder.Partner_Account__r.Name}"/>
@@ -10,19 +18,15 @@
             </apex:pageBlockSection>
             
             <apex:pageBlockSection columns="1" title="Line Items" id="lineItems">
+                <apex:commandButton status="processing" action="{!saveLineItems}" id="saveButton" value="save" reRender="lineItems" style="display:none;">
+                </apex:commandButton> 
                 <apex:pageBlockTable value="{!lineItems}" var="lineItem">
                     <apex:column >
-                        <apex:commandButton action="{!deleteLineItem}" id="deleteButton" value="delete" reRender="lineItems">
+                        <apex:commandLink action="{!deleteLineItem}" status="processing" id="deleteButton" reRender="lineItems" style="text-decoration:none;">
+                            &#10008;
                             <apex:param name="lId" value="{!lineItem.Id}"/>
-                        </apex:commandButton>   
+                        </apex:commandLink>   
                     </apex:column>
-                    
-                    <apex:column >
-                        <apex:commandButton action="{!saveLineItem}" id="saveButton" value="save" reRender="lineItems" style="display:none;">
-                            <apex:param name="lId" value="{!lineItem.Id}"/>
-                        </apex:commandButton>   
-                    </apex:column>
-                    
                     <apex:column value="{!lineItem.Item_Name__c}"/>
                     <apex:column value="{!lineItem.Item_Code__c}"/>
                     <apex:column >
@@ -35,23 +39,41 @@
                 </apex:pageBlockTable>
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection columns="1" title="Items">
-                <apex:pageBlockTable value="{!items}" var="item">
-                    <apex:column >
-                    	<apex:commandButton value="Add Item" action="{!addItem}" reRender="lineItems" id="addButton">
-                            <apex:param name="itemId" value="{!item.Id}"/>
-                        </apex:commandButton>   
-                    </apex:column>
-                    <apex:column value="{!item.Id}"/>
-                    <apex:column value="{!item.Name}"/>
-                    <apex:column value="{!item.Item_Name__c}"/>
-                    <apex:column value="{!item.Category__c}"/>
-                    <apex:column value="{!item.price__c}"/>
-                </apex:pageBlockTable>
+            <apex:pageBlockSection columns="1" title="Items" id="items" >
+                <apex:actionRegion >
+                    <apex:selectList value="{!selectedCategory}" size="1" onchange="fetchItemsByCategory();">
+                    	<apex:selectOptions value="{!categoryOptions}"/>
+                    	<apex:actionFunction action="{!loadItems}" name="fetchItemsByCategory" reRender="items" status="processing">
+                            <apex:actionSupport reRender="pagination"/>
+                        </apex:actionFunction>    
+                	</apex:selectList>
+                    <apex:pageBlockTable value="{!items}" var="item">
+                        <apex:column >
+                            <apex:commandButton value="Add Item" status="processing" action="{!addItem}" reRender="lineItems" id="addButton">
+                                <apex:param name="itemId" value="{!item.Id}"/>
+                            </apex:commandButton>   
+                        </apex:column>
+                        <apex:column value="{!item.Id}"/>
+                        <apex:column value="{!item.Name}"/>
+                        <apex:column value="{!item.Item_Name__c}"/>
+                        <apex:column value="{!item.Category__c}"/>
+                        <apex:column value="{!item.price__c}"/>
+                    </apex:pageBlockTable>
+                    <apex:outputPanel id="pagination" rendered="{!hasItemRecords}">
+                        <apex:commandLink status="processing" action="{!firstItems}" value="<<First" rendered="{!hasPreviousItems}" reRender="items"/>
+                        &nbsp;
+                        <apex:commandLink status="processing" action="{!previousItems}" value="<Previous" rendered="{!hasPreviousItems}" reRender="items"/>
+                        <apex:outputText value="Page "/>
+                        <apex:input value="{!itemsPageNumber}" type="number" onchange="goToItemsPageNumber();"/>
+                        <apex:outputText value=" of {!totalPages}"/>
+                        &nbsp;
+                        <apex:commandLink status="processing" action="{!nextItems}" value="Next>" rendered="{!hasNextItems}" reRender="items"/>
+                        &nbsp;
+                        <apex:commandLink status="processing" action="{!lastItems}" value="Last>>" rendered="{!hasNextItems}" reRender="items"/>
+                        <apex:actionFunction status="processing" action="{!goToItemsPageNumber}" name="goToItemsPageNumber" reRender="items"/>
+                    </apex:outputPanel>
+                </apex:actionRegion>  
             </apex:pageBlockSection>
-    	</apex:pageBlock>
+     	</apex:pageBlock>
     </apex:form>
-    
-               
-    
 </apex:page>

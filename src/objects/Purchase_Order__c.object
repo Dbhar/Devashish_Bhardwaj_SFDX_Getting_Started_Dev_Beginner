@@ -18,7 +18,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>NewPurchaseOrder</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>List</actionName>
@@ -26,7 +28,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>NewPurchaseOrder</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -100,8 +104,9 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Purchase Order Name</label>
-        <type>Text</type>
+        <displayFormat>ON-{00000000}</displayFormat>
+        <label>Purchase Order Number</label>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Purchase Orders</pluralLabel>
     <searchLayouts/>

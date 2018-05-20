@@ -1,0 +1,4 @@
+<apex:page docType="html-5.0">
+    <c:SOQLQuery soql="select id, Name, BillingCity FROM Account ORDER BY Name"/>
+    <c:SOQLQuery soql="select id, Name, Price__c FROM Item__c ORDER BY Name"/>
+</apex:page>

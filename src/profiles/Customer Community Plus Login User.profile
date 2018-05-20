@@ -95,7 +95,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GenericQuery</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ManageClassesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NewPurchaseOrder</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1464,11 +1472,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Purchase_Order_Line_Item__c.Purchase_Order__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Purchase_Order_Line_Item__c.Quantity__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1903,11 +1906,19 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>BogusQuery</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>Class</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ManageClasses</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>NewPurchaseOrder</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
