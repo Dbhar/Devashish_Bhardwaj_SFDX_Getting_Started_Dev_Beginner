@@ -1,0 +1,15 @@
+<apex:page standardController="Student__c" sidebar="false" showHeader="false" showChat="false" standardStylesheets="false">
+    <apex:stylesheet value="{!
+                            URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap.css')}"/>
+    
+    <table class="table table-bordered">
+        <tr>
+            <th>Student Name</th>
+            <th>Class Name</th>
+        </tr>
+        <tr>
+        	<td>{!Student__c.FirstName__c}&nbsp;{!Student__c.LastName__c}</td>
+            <td>{!Student__c.Class__r.ClassName__c}</td>
+        </tr>
+    </table>    
+</apex:page>

@@ -1,0 +1,39 @@
+<apex:page standardController="Javascript_Assignment_custom_object__c" showChat="false" showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:stylesheet value="{!
+                            URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap.css')}"/>
+    <script src="../../soap/ajax/42.0/connection.js"/>
+    <script src="../../soap/ajax/42.0/apex.js"/>
+    <div class="form-group">
+    	<label for="name">Name : </label>
+    	<input value="{!Javascript_Assignment_custom_object__c.Name}" id="name" class="form-control"/>
+    </div>
+    <div class="btn-group">
+        <button onclick="save();" class="btn btn-primary">
+        	Save
+    	</button>
+    </div>  
+    <script type="text/javascript">
+    	function save(){
+            var id = '{!Javascript_Assignment_custom_object__c.Id}';
+            sforce.connection.sessionId = '{!GETSESSIONID()}';
+            name = document.getElementById('name').value;
+            var record = new sforce.SObject('Javascript_Assignment_custom_object__c');
+            record.Name = name;
+            if(record.Name==''){
+            	alert("Please provide a name");
+            }else{
+                record.Id = id;
+                result = sforce.connection.upsert('id',[record]);
+                var isSuccessfull = result[0].getBoolean("success")
+                console.log(isSuccessfull);
+                if(isSuccessfull){
+                	alert('record updated');
+                	window.opener.location = "../../" + id;
+                	window.close();
+                }else{
+                	alert('record Could not be updated');
+                }
+   			} 
+       }     
+    </script>
+</apex:page>

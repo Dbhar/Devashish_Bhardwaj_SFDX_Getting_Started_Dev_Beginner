@@ -217,7 +217,9 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <listViewButtons>Delete_Students</listViewButtons>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>DateOfBirthShouldNotGreaterToday</fullName>
@@ -226,6 +228,17 @@
         <errorDisplayField>DOB__c</errorDisplayField>
         <errorMessage>Date Of Birth Should Not Be Greater Than Today</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Delete_Students</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Delete Students</masterLabel>
+        <openType>replace</openType>
+        <page>DeleteStudents</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
     <webLinks>
         <fullName>Display_As_Json</fullName>
         <availability>online</availability>
@@ -243,5 +256,35 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Hello_World</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Hello World</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>alert(&quot;Hello World&quot;)</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_proxy</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.location = &quot;{!URLFOR(&apos;apex/Class&apos;)}&quot;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Show_Name_And_Class</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Show Name And Class</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&quot;../../apex/StudentNameAndClassAsTable?id={!Student__c.Id}&quot;,&quot;&quot;,&quot;height=200,width=400,top=200,left=500&quot;)</url>
     </webLinks>
 </CustomObject>
