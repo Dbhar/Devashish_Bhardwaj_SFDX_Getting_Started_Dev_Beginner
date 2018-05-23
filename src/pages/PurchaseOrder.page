@@ -3,7 +3,7 @@
     
     <apex:stylesheet value="{!
                             URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap-namespaced.css')}"/>
-    <apex:form >
+    <apex:form id="form">
         <apex:pageBlock >
             <apex:actionStatus id="processing" startText="" stopText="" onStart="document.body.style.cursor = 'wait'; return true;" onStop="document.body.style.cursor = 'default';return true;"/>
             <apex:pageBlockButtons >
@@ -41,6 +41,7 @@
             
             <apex:pageBlockSection columns="1" title="Items" id="items" >
                 <apex:actionRegion >
+                    <apex:actionStatus id="addItemStatus" startText="" stopText="" onStart="document.body.style.cursor = 'wait'; return true;" onStop="document.body.style.cursor = 'default';location.reload(true);return true;"/>
                     <apex:selectList value="{!selectedCategory}" size="1" onchange="fetchItemsByCategory();">
                     	<apex:selectOptions value="{!categoryOptions}"/>
                     	<apex:actionFunction action="{!loadItems}" name="fetchItemsByCategory" reRender="items" status="processing">
@@ -49,7 +50,7 @@
                 	</apex:selectList>
                     <apex:pageBlockTable value="{!items}" var="item">
                         <apex:column >
-                            <apex:commandButton value="Add Item" status="processing" action="{!addItem}" reRender="lineItems" id="addButton">
+                            <apex:commandButton value="Add Item" status="addItemStatus" action="{!addItem}" reRender="form" id="addButton">
                                 <apex:param name="itemId" value="{!item.Id}"/>
                             </apex:commandButton>   
                         </apex:column>
