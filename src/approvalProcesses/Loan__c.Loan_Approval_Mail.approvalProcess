@@ -23,6 +23,14 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Loan__c.Amount__c</field>
+                <operation>greaterThan</operation>
+                <value>15000</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>ApproveRecord</ifCriteriaNotMet>
         <label>Step 1</label>
         <name>Step_1</name>
         <rejectionActions>
@@ -35,9 +43,8 @@
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <criteriaItems>
-            <field>Loan__c.Amount__c</field>
-            <operation>greaterThan</operation>
-            <value>15000</value>
+            <field>Loan__c.Name</field>
+            <operation>notEqual</operation>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
