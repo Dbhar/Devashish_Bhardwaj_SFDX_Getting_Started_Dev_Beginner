@@ -8,7 +8,7 @@ public class BillToContactLookupController {
         options = new List<SelectOption>();
         opp = [SELECT Id, Bill_To_Contact__c, Manager__c, Manager__r.Name FROM Opportunity WHERE Id = :opportunityId];
         selectedContactId = opp.Bill_To_Contact__c;
-        contacts = [SELECT Id, Name, Subjects__c, Account.Name FROM Contact WHERE AccountId = :opp.Manager__c];
+        contacts = [SELECT Id, Name, Subjects__c, Account.Name FROM Contact WHERE (AccountId != NULL AND AccountId = :opp.Manager__c) ORDER BY NAME];
         for(Contact c : contacts){
             options.add(new SelectOption(c.Id, 'Name : ' + c.Name + ' Subjects : ' + c.Subjects__c));
         }

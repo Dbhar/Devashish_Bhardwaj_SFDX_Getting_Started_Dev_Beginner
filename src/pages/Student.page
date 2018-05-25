@@ -1,5 +1,6 @@
 <apex:page standardController="Student__c">
     <apex:form >
+        <apex:pageMessages />
         <apex:pageBlock id="block" title="Student Edit Page">
             <apex:pageBlockButtons >
             	<apex:commandButton value="save" action="{!save}"/>

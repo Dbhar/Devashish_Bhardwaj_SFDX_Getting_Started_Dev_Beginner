@@ -1,15 +1,11 @@
 public class OpportunityManager {
     public Static void updateManager(List<Opportunity> opportunities){
         //Query opportunities with the Bill_To_Contact field if not done by the caller.  
-        try{
-            Id billToContactId = opportunities[0].Bill_To_Contact__c;
-        }catch(SObjectException e){
-            List<Id> opportunityIds = new List<Id>();
-            for(Opportunity opp : Opportunities){
-                opportunityIds.add(opp.Id);
-            }
-            opportunities = [SELECT Id, Bill_To_Contact__c FROM Opportunity WHERE Id IN :opportunityIds];
+        List<Id> opportunityIds = new List<Id>();
+        for(Opportunity opp : Opportunities){
+            opportunityIds.add(opp.Id);
         }
+        opportunities = [SELECT Id, Bill_To_Contact__c FROM Opportunity WHERE Id IN :opportunityIds];
         for(Opportunity opp : opportunities){
             if(opp.Bill_To_Contact__c != null){
                 opp.Manager__c = [SELECT AccountId FROM Contact WHERE Id = :opp.Bill_To_Contact__c].AccountId;
@@ -17,5 +13,4 @@ public class OpportunityManager {
         }
         update opportunities;
     }
-
 }
