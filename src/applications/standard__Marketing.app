@@ -17,4 +17,6 @@
     <tab>Account_Filter_With_Pagination</tab>
     <tab>Purchase_Order__c</tab>
     <tab>Item__c</tab>
+    <tab>Using_Query_Component</tab>
+    <tab>Javascript_Assignment_custom_object__c</tab>
 </CustomApplication>

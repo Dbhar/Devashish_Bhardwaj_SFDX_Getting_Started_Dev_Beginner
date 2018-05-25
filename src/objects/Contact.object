@@ -448,9 +448,10 @@
         <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
         <excludedStandardButtons>AddToCampaign</excludedStandardButtons>
         <excludedStandardButtons>ListClean</excludedStandardButtons>
-        <excludedStandardButtons>SendListEmailAction</excludedStandardButtons>
-        <excludedStandardButtons>CreateCallList</excludedStandardButtons>
         <excludedStandardButtons>MassAddToCampaign</excludedStandardButtons>
+        <excludedStandardButtons>CreateCallList</excludedStandardButtons>
+        <excludedStandardButtons>SendListEmailAction</excludedStandardButtons>
+        <listViewButtons>Show_Student_Fields</listViewButtons>
         <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Experience__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Subjects__c</lookupDialogsAdditionalFields>
@@ -470,4 +471,27 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Show_Student_Fields</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Show Student Fields</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>console.log(&quot;started&quot;);
+{!requireScript(&quot;/soap/ajax/42.0/connection.js&quot;)};
+console.log(&quot;1st js library loaded&quot;);
+{!requireScript(&quot;/soap/ajax/42.0/apex.js&quot;)};
+console.log(&quot;2nd js library loaded&quot;);
+sforce.connection.sessionId = &apos;{!GETSESSIONID()}&apos;;
+var result = sforce.connection.describeSObject(&quot;Contact&quot;);
+var fields = result.fields;
+alert(&quot;Displaying API Names Of Student Fields&quot;);
+for(var i = 0; i &lt; fields.length; i++){
+    var field = fields[i];
+    alert(field.name);
+}</url>
+    </webLinks>
 </CustomObject>

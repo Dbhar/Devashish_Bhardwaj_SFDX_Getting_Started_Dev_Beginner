@@ -1,0 +1,36 @@
+<apex:page standardController="Class__c" showChat="false" showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:stylesheet value="{!
+                            URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap.css')}"/>
+    <script src="../../soap/ajax/42.0/connection.js"/>
+    <script src="../../soap/ajax/42.0/apex.js"/> 
+        <div class="form-group">
+        	<label for="studentNameInput">Student Name : </label>
+        	<input value="" type="text" id="inputBox" class="form-control"/>
+        </div>
+        <div class="btn-group">        
+            <button onclick="createStudent(document.getElementById('inputBox'));" class="btn btn-primary">
+                Create Student
+            </button>
+        </div>       
+     <script type="application/javascript">
+            function createStudent(element){
+                sforce.connection.sessionId = '{!GetSessionId()}';
+                var studentName = element.value;
+                console.log(studentName);
+                var student = new sforce.SObject('Student__c');
+                student.LastName__c = studentName;
+                student.Class__c = '{!Class__c.Id}';
+                
+                var result = sforce.connection.create([student]);
+                var isSuccessfull = result[0].getBoolean("success")
+                console.log(isSuccessfull);
+                if(isSuccessfull){
+                	alert('Student created');
+                	window.opener.location = "../../" + result[0].id;
+                	window.close();
+                }else{
+                	alert('Name is required');
+                }
+            }
+    </script>       
+</apex:page>

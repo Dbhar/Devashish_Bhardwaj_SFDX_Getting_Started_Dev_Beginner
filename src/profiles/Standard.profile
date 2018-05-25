@@ -95,6 +95,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DeleteStudentsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GenericQuery</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -997,6 +1001,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Javascript_Assignment_custom_object__c.Bogus_Field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1680,6 +1689,9 @@
         <layout>Item__c-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Javascript_Assignment_custom_object__c-Javascript Assignment custom object Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>JobTracker-Job Tracker Layout - Winter %2716</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1977,6 +1989,22 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CreateStudentFromClassDetail</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DeleteStudents</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>JS_Assignment_CO_EDIT_REDIRECT</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>JS_Assignment_CO_Edit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ManageClasses</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -1998,6 +2026,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>StudentAsPdf</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>StudentNameAndClassAsTable</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -2045,6 +2077,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Javascript_Assignment_custom_object__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Loan__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -2058,6 +2094,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Student__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Using_Query_Component</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

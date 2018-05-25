@@ -1,0 +1,7 @@
+<apex:page standardController="Javascript_Assignment_custom_object__c">
+    <script>
+    	var id = "{!Javascript_Assignment_custom_object__c.Id}"
+        new_window = window.open("../../apex/JS_Assignment_CO_Edit?id=" + id + '&retUrl=%2Fapex/JS_Assignment_CO_EDIT_REDIRECT',"_blank", "height=500,width=500","true");
+    	window.location="../../" + id; 
+    </script>	
+</apex:page>

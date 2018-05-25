@@ -180,4 +180,14 @@
         <searchResultsAdditionalFields>ClassTeacher__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>create_student</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>create student</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&quot;../../apex/CreateStudentFromClassDetail?id={!Class__c.Id} &quot;,&quot;&quot;,&quot;height=500,width=500&quot;);</url>
+    </webLinks>
 </CustomObject>
