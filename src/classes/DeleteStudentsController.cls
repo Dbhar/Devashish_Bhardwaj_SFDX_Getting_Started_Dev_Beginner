@@ -4,7 +4,9 @@ public class DeleteStudentsController {
     public Boolean hasRecordsToDelete{get;set;}
     public DeleteStudentsController(ApexPages.StandardSetController con){
         this.controller = con;
-        controller.addFields(new List<String>{'FirstName__c','LastName__c','DOB__c','Age__c','Married__c'});
+        if(!Test.isRunningTest()){
+     		controller.addFields(new List<String>{'FirstName__c','LastName__c','DOB__c','Age__c','Married__c'});       
+        }
         selectedStudents = controller.getSelected();
         if(selectedStudents.size() == 0){
             hasRecordsToDelete = false;

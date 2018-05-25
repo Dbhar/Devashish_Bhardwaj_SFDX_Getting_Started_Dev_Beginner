@@ -11,8 +11,13 @@ public class StudentAsPDFExtension {
         delete [SELECT Id FROM Attachment WHERE ParentId = :studentId];
   		currentPage.getParameters().put('id', studentId);
         studentDetails = new Attachment();
-        studentDetails.Body = currentPage.getContentAsPDF();
-        studentDetails.ContentType='application/pdf';
+        if(!Test.isRunningTest()){
+        	studentDetails.Body = currentPage.getContentAsPDF();    
+        }else{
+            studentDetails.Body = Blob.valueOf(studentId);
+        }
+        
+        studentDetails.ContentType = 'application/pdf';
         studentDetails.ParentId = studentId;
         studentDetails.Name = 'Student Details.pdf';
         insert studentDetails;

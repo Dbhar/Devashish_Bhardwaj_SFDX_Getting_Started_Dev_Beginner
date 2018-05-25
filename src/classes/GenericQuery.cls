@@ -11,7 +11,6 @@ public class GenericQuery {
     public Boolean hasPrevious{get;set;}
     public Integer pageNumber{get;set;}
     public Integer maxPages{get;set;}
-    public string sortField{get;set;}
     public string sortOrder{get;set;}
     private string type;
     
@@ -101,10 +100,10 @@ public class GenericQuery {
             if(!String.isEmpty(whereAndBeyond)){
                 if(!String.isEmpty(orderByAndBeyond)){
                    whereCondition = 'WHERE ' + whereAndBeyond.substringBeforeLast('ORDER BY');
-                }else if(!String.isEmpty('LIMIT')){
+                }else if(!String.isEmpty(limitAndBeyond)){
                    whereCondition = 'WHERE' + whereAndBeyond.substringBeforeLast('LIMIT');
                 }else{
-                    whereCondition = whereAndBeyond;
+                    whereCondition = 'WHERE ' + whereAndBeyond;
                 }
             }
             correctedQuery = 'SELECT ' + String.join(queriedFields, ',') + ' FROM ' + type + ' ' + whereCondition + ' Order By ' + sortField + ' ' + sortOrder + ' ' + limitAndBeyond;  

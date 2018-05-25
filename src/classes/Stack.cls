@@ -20,5 +20,9 @@ public class Stack {
         stackPointer--;
         return element;
     }
+    
+    public List<Object> getElements(){
+        return elements;
+    }
 
 }

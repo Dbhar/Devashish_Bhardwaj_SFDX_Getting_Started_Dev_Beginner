@@ -4,7 +4,16 @@ public class ClassManager {
     public static List<String> getStudents(Id classid){
         List<String> studentNames = new List<String>();
         for(Student__c student : [SELECT FirstName__c, LastName__c FROM Student__c WHERE Class__c = :classid]){
-            studentNames.add(student.FirstName__c + ' ' + student.LastName__c);
+            String studentName = '';
+            String separator = '';
+            if(student.FirstName__c != null){
+            	studentName += student.FirstName__c;
+                separator = ' ';
+            }
+            if(student.LastName__c != null){
+                studentName += separator + student.LastName__c;
+            }
+            studentNames.add(studentName);    
         }
         return studentNames;
     }

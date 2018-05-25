@@ -9,7 +9,7 @@
                             Edit
                         </apex:commandLink>
                         &nbsp;
-                        <apex:commandLink action="{!deleteRecord}" reRender="records" >
+                        <apex:commandLink action="{!deleteRecord}">
                             delete
                             <apex:param value="{!class.Id}" name="recordId" assignTo="{!recordId}"/>
                         </apex:commandLink>
@@ -26,7 +26,8 @@
     <apex:form id="recordToEdit">
         <apex:pageBlock rendered="{!isRecordBeingEdited}">
             <apex:pageBlockButtons >
-                <apex:commandButton action="{!saveRecord}" value="save" reRender="recordToEdit">
+                <apex:actionFunction action="{!saveRecord}" name="save"/>
+                <apex:commandButton onclick="save();document.reload(true);" value="Save" reRender="recordToEdit">
                     <apex:actionSupport reRender="records" />
                 </apex:commandButton> 
                 <apex:commandButton action="{!cancel}" value="cancel" reRender="recordToEdit">

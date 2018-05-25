@@ -2,7 +2,6 @@ public class ManageClassesController {
     public ApexPages.StandardSetController controller{get;set;}
     public List<Class__c> classes{get;set;}
     public Id recordId{get;set;}
-    public Boolean errorOccurred{get;set;}
     public Class__c mockClass{get;set;}
     public Boolean isRecordBeingEdited{get;set;}
     public ManageClassesController(){
@@ -11,8 +10,9 @@ public class ManageClassesController {
     
     public void deleteRecord(){
         System.debug(recordId);
-        	delete [SELECT Id FROM Class__c WHERE Id = :recordId];    
-        	fetchRecords();    
+        delete [SELECT Id FROM Class__c WHERE Id = :recordId];    
+        fetchRecords();
+        isRecordBeingEdited = false;
     }
     
     public void edit(){
