@@ -10,12 +10,6 @@
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Loan_Approval_mail_alert</name>
-                <type>Alert</type>
-            </action>
-        </approvalActions>
         <assignedApprover>
             <approver>
                 <name>Manager__c</name>
@@ -33,12 +27,6 @@
         <ifCriteriaNotMet>ApproveRecord</ifCriteriaNotMet>
         <label>Step 1</label>
         <name>Step_1</name>
-        <rejectionActions>
-            <action>
-                <name>Loan_Rejection_Mail_Alert</name>
-                <type>Alert</type>
-            </action>
-        </rejectionActions>
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
@@ -47,7 +35,27 @@
             <operation>notEqual</operation>
         </criteriaItems>
     </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Loan_Approval_mail_alert</name>
+            <type>Alert</type>
+        </action>
+        <action>
+            <name>Update_Loan_Status</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Loan_Rejection_Mail_Alert</name>
+            <type>Alert</type>
+        </action>
+        <action>
+            <name>Update_Loan_Status_To_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <label>Loan Approval Mail</label>
     <recordEditability>AdminOnly</recordEditability>

@@ -16,4 +16,5 @@
     <tab>Item__c</tab>
     <tab>Using_Query_Component</tab>
     <tab>Javascript_Assignment_custom_object__c</tab>
+    <tab>TestSF1__c</tab>
 </CustomApplication>
