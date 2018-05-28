@@ -1,15 +1,22 @@
-<apex:page standardController="Purchase_Order__c" extensions="NewPurchaseOrder">
-    <apex:form >
-        <apex:pageBlock id="block" title="Purchase Edit Page">
-            <apex:pageBlockButtons >
-            	<apex:actionStatus id="processing" startText="" stopText="" onStart="document.body.style.cursor = 'wait'; return true;" onStop="document.body.style.cursor = 'default';return true;"/>
-                <apex:commandButton value="next" action="{!save}" status="processing" />
-                <apex:commandButton value="cancel" action="{!cancel}"/>
-            </apex:pageBlockButtons>
-            <apex:pageBlockSection id="section1" columns="2">
-                <apex:inputField value="{!Purchase_Order__c.Partner_Account__c}"/>
-                <apex:inputField value="{!Purchase_Order__c.Type_of_smart_pack_assembly__c}"/>
-            </apex:pageBlockSection>
-        </apex:pageBlock>
-    </apex:form>    
+<apex:page standardController="Purchase_Order__c" docType="html-5.0" extensions="NewPurchaseOrder" tabStyle="Contact" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false" standardStylesheets="true" lightningStylesheets="true">
+    <html>
+        <head>
+            <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>-->
+        </head>
+        <body>    
+            <apex:form >
+                <apex:pageBlock id="block" title="Purchase Edit Page">
+                    <apex:pageBlockButtons location="bottom" >
+                        <apex:actionStatus id="processing" startText="" stopText="" onStart="document.body.style.cursor = 'wait'; return true;" onStop="document.body.style.cursor = 'default';return true;"/>
+                        <apex:commandButton value="next" action="{!save}" status="processing" />
+                        <apex:commandButton value="cancel" action="{!cancel}"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection id="section1" columns="2">
+                        <apex:inputField value="{!Purchase_Order__c.Partner_Account__c}"/>
+                        <apex:inputField value="{!Purchase_Order__c.Type_of_smart_pack_assembly__c}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </body>
+     </html>           
 </apex:page>

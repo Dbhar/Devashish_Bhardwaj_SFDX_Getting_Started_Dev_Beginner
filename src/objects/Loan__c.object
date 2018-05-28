@@ -71,6 +71,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Applicant_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Applicant Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CityManager__c</fullName>
         <externalId>false</externalId>
         <label>CityManager</label>
@@ -105,6 +114,32 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Loan</label>
     <listViews>
         <fullName>All</fullName>
@@ -112,7 +147,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Loan Name</label>
+        <label>Applicant Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Loans</pluralLabel>

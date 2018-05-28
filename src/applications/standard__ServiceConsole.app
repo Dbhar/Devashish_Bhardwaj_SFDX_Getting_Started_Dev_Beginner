@@ -183,6 +183,7 @@
     <tab>Item__c</tab>
     <tab>Using_Query_Component</tab>
     <tab>Javascript_Assignment_custom_object__c</tab>
+    <tab>TestSF1__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>Account_Filter</tab>
@@ -207,6 +208,9 @@
         </mapping>
         <mapping>
             <tab>Purchase_Order__c</tab>
+        </mapping>
+        <mapping>
+            <tab>TestSF1__c</tab>
         </mapping>
         <mapping>
             <tab>Using_Query_Component</tab>

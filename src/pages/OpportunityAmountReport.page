@@ -1,0 +1,18 @@
+<apex:page controller="OpportunityAmountReportController">
+    <apex:pageBlock title="Opportunity Amount Report">
+    	<apex:pageBlockTable value="{!accountWrapper}" var="acc" >
+            <apex:column >
+            	<apex:facet name="header">Account Id</apex:facet>
+                {!acc.accountId}	
+            </apex:column>
+            <apex:column >
+            	<apex:facet name="header">Account Name</apex:facet>
+                {!acc.accountName}	
+            </apex:column>
+            <apex:column >
+            	<apex:facet name="header">Total Opportunity Amount</apex:facet>
+                {!acc.opportunityAmount}	
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

@@ -2,9 +2,9 @@ trigger HandleOpportunityCloseDateAndOpportunityLineItems on Opportunity (before
     //Handle opportunity Close Date
     if(Trigger.IsBefore){
     	for(Opportunity opp : Trigger.New){
-            String oldStatus = Trigger.oldMap.get(opp.Id).StageName;
-            String newStatus = opp.StageName;
-            if((oldStatus != newStatus) && (newStatus == 'Closed Won' || newStatus == 'Closed Lost')){
+            String oldStage = Trigger.oldMap.get(opp.Id).StageName;
+            String newStage = opp.StageName;
+            if((oldStage != newStage) && (newStage == 'Closed Won' || newStage == 'Closed Lost')){
                 opp.CloseDate = Date.today();
             }
     	}    
@@ -22,5 +22,4 @@ trigger HandleOpportunityCloseDateAndOpportunityLineItems on Opportunity (before
         }
         delete oppLineItemsToDelete;
     }
-    
 }

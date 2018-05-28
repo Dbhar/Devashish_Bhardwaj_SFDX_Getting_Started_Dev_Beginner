@@ -110,4 +110,66 @@ private class TriggersTest {
         }
             
     }
+    
+    private testMethod static void testHandleOpportunityStatusChange(){
+        List<Opportunity> opportunities = new List<Opportunity>();
+        for(Integer i = 0; i < 500; i++){
+            opportunities.add(new Opportunity(Name = 'Test Opp', StageName = 'Prospecting', CloseDate=Date.newInstance(2018, 1, 1), Custom_Status__c = 'New'));
+        }
+        insert opportunities;
+        for(Opportunity opp : opportunities){
+            opp.Custom_Status__c = 'Open';
+        }
+        try{
+            Test.startTest();
+        	update opportunities;
+        	Test.stopTest();
+        }catch(Exception e){
+            System.assert(false, e);
+        }
+    }
+    
+    private testMethod static void testHandleChildAccounts(){
+        List<Account> parentAccounts = new List<Account>();
+        for(Integer i = 0 ; i < 10; i++){
+            parentAccounts.add(new Account(Name = 'Parent Test Account' + i));
+        }
+        insert parentAccounts;
+        Map<Id, List<Account>> childAccountsMap = new Map<Id, List<Account>>();
+        List<Account> childAccountsToInsert = new List<Account>();
+        for(Account acc : parentAccounts){
+            List<Account> childAccounts = new List<Account>();
+            for(Integer i = 0 ; i < 100; i++){
+            	Account ac = new Account(Name = 'Child Test Account' + i + ' - ' + acc.Name, Parent_Account__c = acc.Id);
+                childAccounts.add(ac);
+                childAccountsToInsert.add(ac);
+        	}
+            childAccountsMap.put(acc.Id, childAccounts);
+        }
+        insert childAccountsToInsert;
+        for(Account acc : [SELECT Child_Count__c FROM Account WHERE Id in :childAccountsMap.keySet()]){
+            System.assertEquals(100, acc.Child_Count__c, 'Failed for ' + acc);
+        }
+        List<Id> parentAccountIds = new List<Id>(childAccountsMap.keySet());
+        Id parent1Id = parentAccountIds.get(0);
+        Id parent2Id = parentAccountIds.get(1);
+        Account parent1Child1 = childAccountsMap.get(parent1Id).get(0);
+        Account parent1Child2 = childAccountsMap.get(parent1Id).get(1);
+        Account parent1Child3 = childAccountsMap.get(parent1Id).get(2);
+        delete parent1Child1;
+        parent1Child2.Parent_Account__c = null; 
+        parent1Child3.Parent_Account__c = parent2Id;
+        update new List<Account>{parent1Child2, parent1Child3};
+        for(Account acc : [SELECT Id, Child_Count__c FROM Account WHERE Id IN :new Set<Id>{parent1Id, parent2Id}]){
+            if(acc.Id == parent1Id){
+                System.assertEquals(97, acc.Child_Count__c);
+            }else{
+                System.assertEquals(101, acc.Child_Count__c);
+            }
+        }
+        
+        for(Account acc : [SELECT Child_Count__c FROM Account WHERE Id in :childAccountsMap.keySet() AND Id NOT IN :new Set<Id>{parent1Id, parent2Id}]){
+            System.assertEquals(100, acc.Child_Count__c, 'Failed For ' + acc);
+        }
+    }
 }
