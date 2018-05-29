@@ -6,7 +6,7 @@
                                 URLFOR($Resource.bootstrap,'bootstrap-sf1-0.1.0-beta.5/dist/css/bootstrap.min.css')}"/>
         </head>                        
         <body class="container">
-            <apex:form id="form">
+            <apex:form id="form" style="width : '100%';">
                     <apex:pageBlock >
                         <div class="page-header">
                                 <h2>Purchase Order Details</h2>
@@ -18,15 +18,13 @@
                             <apex:outputField value="{!purchaseOrder.Type_of_smart_pack_assembly__c}"/>
                         </apex:pageBlockSection>
                         <apex:pageBlockButtons >
-                            <div align="center">
-                                <div class="btn-group">
-                                    <apex:commandButton action="{!save}" value="Save"/>
-                                    &nbsp;
-                                    <apex:commandButton action="{!cancel}" value="Cancel"/>
-                                    &nbsp;
-                                    <apex:commandButton action="{!deleteOrder}" value="Delete Order"/>
-                                </div>
-                             </div>   
+                            <div class="btn-group" align="center">
+                                <apex:commandButton action="{!save}" value="Save"/>
+                                &nbsp;
+                                <apex:commandButton action="{!cancel}" value="Cancel"/>
+                                &nbsp;
+                                <apex:commandButton action="{!deleteOrder}" value="Delete Order"/>
+                            </div>
                         </apex:pageBlockButtons>
                     </apex:pageBlock>
                     <apex:pageBlock >
