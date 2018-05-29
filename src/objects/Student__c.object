@@ -82,6 +82,17 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Custom_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(OR(ISBLANK(FirstName__c),ISNULL(FirstName__c))), FirstName__c &amp; &apos; &apos;, &apos;&apos;) &amp; LastName__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DOB__c</fullName>
         <externalId>false</externalId>
         <label>DOB</label>

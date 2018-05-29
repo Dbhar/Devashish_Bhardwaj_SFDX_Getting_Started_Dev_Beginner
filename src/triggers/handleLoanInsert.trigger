@@ -4,6 +4,10 @@ trigger handleLoanInsert on Loan__c (before insert) {
         cityManagersMap.put(manager.Id, manager);
     }
     for(Loan__c loan : Trigger.New){
-        loan.Manager__c = cityManagersMap.get(loan.CityManager__c).Manager__c;
+        Id cityManagerId = loan.CityManager__c;
+        if(cityManagerId != null){
+            loan.Manager__c = cityManagersMap.get(cityManagerId).Manager__c;
+        }
+        
     }
 }
