@@ -91,7 +91,7 @@
     <relatedLists>
         <fields>Contact.CNTC_FIRST_NAME</fields>
         <fields>Contact.NAME</fields>
-        <fields>Contact.Subjects__c</fields>
+        <fields>Subject__c</fields>
         <relatedList>Teach__c.Class__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

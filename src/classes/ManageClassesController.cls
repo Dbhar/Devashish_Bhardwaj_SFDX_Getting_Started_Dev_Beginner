@@ -1,11 +1,11 @@
 public class ManageClassesController {
-    public ApexPages.StandardSetController controller{get;set;}
+    //public ApexPages.StandardSetController controller{get;set;}
     public List<Class__c> classes{get;set;}
     public Id recordId{get;set;}
     public Class__c mockClass{get;set;}
     public Boolean isRecordBeingEdited{get;set;}
     public ManageClassesController(){
-  		fetchRecords();
+                fetchRecords();
     }
     
     public void deleteRecord(){
@@ -37,7 +37,8 @@ public class ManageClassesController {
     }
     
     public void fetchRecords(){
-        controller = new ApexPages.StandardSetController([SELECT Id, ClassName__c, Fee__c, ClassTeacher__c, Board__c, MaxSize__c FROM Class__c]);
-        classes = controller.getRecords();
+        //controller = new ApexPages.StandardSetController([SELECT Id, ClassName__c, Fee__c, ClassTeacher__c, Board__c, MaxSize__c FROM Class__c]);
+        //classes = controller.getRecords();
+        classes = [SELECT Id, ClassName__c, Fee__c, ClassTeacher__c, Board__c, MaxSize__c FROM Class__c];
     }
 }

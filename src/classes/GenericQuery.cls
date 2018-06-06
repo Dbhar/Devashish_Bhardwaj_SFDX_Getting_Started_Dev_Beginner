@@ -12,6 +12,7 @@ public class GenericQuery {
     public Integer pageNumber{get;set;}
     public Integer maxPages{get;set;}
     public string sortOrder{get;set;}
+    public string recordName{get;set;}
     private string type;
     
     public ApexPages.StandardSetController controller{get;set;}
@@ -19,14 +20,14 @@ public class GenericQuery {
         if(query == null){
             try{
                 System.debug('Setting query');
-        		query = s.toUpperCase();
-        		initializeController();
-        		loadRecords();
+                query = s.toUpperCase();
+                initializeController();
+                loadRecords();
                 isQuerySuccessful = true;
            }catch(Exception e){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.Severity.ERROR, e.getMessage() + e.getStackTraceString()));
-            	hasError = true;
-            	isQuerySuccessful = false;
+                hasError = true;
+                isQuerySuccessful = false;
            }
        }
     }
@@ -40,16 +41,17 @@ public class GenericQuery {
             correctedQuery = query;
         }
         List<SObject> sObjs = new List<sObject>();
-        String fields = correctedQuery.substringBetween('SELECT', 'FROM').trim();
+        String fields = correctedQuery.substringBetween('SELECT', 'FROM').trim().replaceAll(' ','').toLowerCase();
         String conditions = correctedQuery.substringAfterLast('FROM');
         List<String> fieldTokens = fields.split(',');
-        if(!fieldTokens.contains('ID')){
+        queriedFields = new List<String>(fieldTokens);
+        if(!fieldTokens.contains('id')){
             fieldTokens.add(0, 'Id');
-           	correctedQuery = 'SELECT ' + String.join(fieldTokens, ', ') + ' FROM ' + conditions;
+            correctedQuery = 'SELECT ' + String.join(fieldTokens, ', ') + ' FROM ' + conditions;
         }
         System.debug(correctedQuery);
         sObjs = Database.query(correctedQuery);
-        getQueriedFieldsAndLabels(sObjs.get(0), query);
+        getFieldLabels(sObjs.get(0));
         controller = new ApexPages.StandardSetController(sObjs);
         controller.setPageSize(10);
         hasNext = controller.getHasNext();
@@ -63,14 +65,30 @@ public class GenericQuery {
         records = new List<Map<String, Object>>();
         List<Sobject> sObj = controller.getRecords();
         records = new List<Map<String, Object>>();
+        List<String> queriedFieldsWithId = new List<String>(queriedFields);
+        if(!queriedFieldsWithId.contains('id')){
+            queriedFieldsWithId.add('id');    
+        }
         for(Sobject o : sObj){
             Map<String, Object> r = new Map<String, Object>();
-            for(String field : queriedFields){
-                if(o.get(field) != null ){
-                	r.put(field, o.get(field));    
-                }else{
-                    r.put(field,'');
-                }
+            for(String field : queriedFieldsWithId){
+               if(!field.contains('.')){
+                   	if(o.get(field) != null ){
+                    	r.put(field, o.get(field));    
+                	}else{
+                    	r.put(field,'');
+                	}
+               }else{
+                   List<String> fieldRelationship = field.split('\\.');
+                   String parentObject = fieldRelationship.get(0).capitalize();
+                   String parentField = fieldRelationShip.get(1);
+                   if(o.getSObject(parentObject) != null){
+                       r.put(field, o.getSObject(parentObject).get(parentField));
+                   }else{
+                       r.put(field, '');
+                   }
+              	    	     
+               }   
             }
             records.add(r);
         }
@@ -122,21 +140,37 @@ public class GenericQuery {
         
     }
         
-    private void getQueriedFieldsAndLabels(SObject sObj, String query){
-        if(fieldLabels == null && queriedFields == null){
+    private void getFieldLabels(SObject sObj){
+        if(fieldLabels == null){
             fieldLabels = new Map<String, String>();
-            queriedFields = new List<String>();
             Schema.DescribeSObjectResult describe = sObj.getSObjectType().getDescribe();
             type = describe.getName();
+            recordName = describe.getLabelPlural();
             Map<String, Schema.SObjectField> fieldMap = describe.fields.getMap();
-            for(String field : fieldMap.keySet()){
+            for(String field : queriedFields){
                 String fld = (String)field;
-                if(query.contains(fld.toUpperCase())){
-                    System.debug(field);
+                if(fieldMap.containsKey(fld)){
+                    System.debug(fld);
                     fieldLabels.put(fld, fieldMap.get(fld).getDescribe().getLabel());
-                    queriedFields.add(fld);
-                }
-            }	 
+                }else{
+                    if(fld.contains('.')){
+                        List<String> fieldRelationship = fld.split('\\.');
+                        if(fieldRelationship.size() > 2){
+                            throw new QueryException('Only one level of nesting to parent objects is supported');
+                        }
+                        String parentObject = fieldRelationship.get(0).replaceAll('__r', '__c');
+                        String parentField = fieldRelationShip.get(1);
+                        Schema.DescribeSObjectResult parentDescribe = Schema.getGlobalDescribe().get(parentObject).getDescribe();
+                        Map<String, SObjectField> parentFieldMap = parentDescribe.fields.getMap();
+                        String parentFieldLabel = parentFieldMap.get(parentField).getDescribe().getLabel();
+                        parentObject = parentObject.replaceAll('__c', '');
+                        if(!parentFieldLabel.containsIgnoreCase(parentObject)){
+                            parentFieldLabel = parentObject.capitalize() + ' ' + parentFieldLabel;
+                        }
+                        fieldLabels.put(fld, parentFieldLabel);
+                    }
+                 }   
+            }    
         }
     }
     

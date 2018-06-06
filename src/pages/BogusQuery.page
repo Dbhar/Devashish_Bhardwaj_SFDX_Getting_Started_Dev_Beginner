@@ -1,4 +1,5 @@
 <apex:page docType="html-5.0">
-    <c:SOQLQuery soql="select id, Name, BillingCity FROM Account ORDER BY Name"/>
-    <c:SOQLQuery soql="select id, Name,AccountId FROM Contact ORDER BY Name"/>
+    <c:SOQLQuery soql="select id, Name, BillingCity,BillingState FROM Account ORDER BY Name"/>
+    <c:SOQLQuery soql="select id, Name,Account.Name,email FROM Contact ORDER BY Name"/>
+    <c:SOQLQuery soql="select FirstName__c, LastName__c, WifeName__c, Married__c, Class__r.ClassName__c From Student__c"/>
 </apex:page>

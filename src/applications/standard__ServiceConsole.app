@@ -185,6 +185,7 @@
     <tab>Javascript_Assignment_custom_object__c</tab>
     <tab>TestSF1__c</tab>
     <tab>Student_Website</tab>
+    <tab>Teach__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>Account_Filter</tab>
@@ -212,6 +213,9 @@
         </mapping>
         <mapping>
             <tab>Student_Website</tab>
+        </mapping>
+        <mapping>
+            <tab>Teach__c</tab>
         </mapping>
         <mapping>
             <tab>TestSF1__c</tab>

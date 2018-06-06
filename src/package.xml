@@ -166,5 +166,9 @@
         <members>*</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>ApexComponent</name>
+    </types>
     <version>38.0</version>
 </Package>

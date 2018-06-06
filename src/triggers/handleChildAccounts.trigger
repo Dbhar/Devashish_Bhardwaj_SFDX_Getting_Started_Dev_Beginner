@@ -1,14 +1,11 @@
 trigger handleChildAccounts on Account (after Insert, after update, after delete) {
-    System.debug(Trigger.oldMap);
     Map<Id, Integer> childCounts = new Map<Id, Integer>();
     for(Account acc : [SELECT Id, Child_Count__c FROM Account]){
         childCounts.put(acc.Id, (Integer)acc.Child_Count__c);
     }
     if(Trigger.isUpdate || Trigger.isInsert){
-        System.debug(ChildCounts);
         List<Id> accountsToUpdateIds = new List<Id>();
         for(Account acc : Trigger.New){
-            System.debug(acc);
             if(acc.Parent_Account__c != null){
                 childCounts.put(acc.Parent_Account__c, childCounts.get(acc.Parent_Account__c) + 1);
                 accountsToUpdateIds.add(acc.Parent_Account__c);
@@ -16,7 +13,6 @@ trigger handleChildAccounts on Account (after Insert, after update, after delete
         }
         if(Trigger.IsUpdate){
         	for(Account acc : Trigger.old){
-                System.debug(acc);
                 if(acc.Parent_Account__c != null){
                     Id accountToDecreaseCountId = acc.Parent_Account__c;
                     Integer decreasedCount = childCounts.get(accountToDecreaseCountId) - 1;

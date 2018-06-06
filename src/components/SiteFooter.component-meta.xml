@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>42.0</apiVersion>
-    <availableInTouch>false</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>BogusQuery</label>
+    <description>Default Lightning Platform site footer component</description>
+    <label>SiteFooter</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>17</minorNumber>
@@ -14,4 +13,4 @@
         <minorNumber>7</minorNumber>
         <namespace>sf_com_apps</namespace>
     </packageVersions>
-</ApexPage>
+</ApexComponent>

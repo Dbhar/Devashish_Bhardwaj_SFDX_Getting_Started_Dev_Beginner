@@ -23,20 +23,20 @@ private class TriggersTest {
     private static testMethod void testDisallowInsertionUpdationOfHindiTeacher(){
         Contact hindiTeacher = new Contact(LastName = 'XXX', Subjects__c = 'Hindi;English;Maths');
         try{
-        	insert hindiTeacher;
+            insert hindiTeacher;
             System.assert(false, 'Record should not have been inserted');
         }catch(Exception e){
-            System.assert(e.getMessage().contains('We don\'t want anymore Hindi Teachers and Hindi Teacher\'s records cannot be updated'), 'Expected error to contain \'We don\'t want anymore Hindi Teachers and Hindi Teacher\'s records cannot be updated\' got ' + e.getMessage());
+            System.assert(e.getMessage().contains('We don\'t want anymore Hindi Teachers'), 'Expected error to contain \'We don\'t want anymore Hindi Teachers\' got ' + e.getMessage());
         }
         
         Contact englishTeacher = new Contact(LastName = 'XXX', Subjects__c = 'English;Maths');
         insert englishTeacher;
         englishTeacher.Subjects__c = 'English;Maths;Hindi';
         try{
-        	update englishTeacher;
+            update englishTeacher;
             System.assert(false, 'Record should not have been updated');
         }catch(Exception e){
-            System.assert(e.getMessage().contains('We don\'t want anymore Hindi Teachers and Hindi Teacher\'s records cannot be updated'), 'Expected error to contain \'We don\'t want anymore Hindi Teachers and Hindi Teacher\'s records cannot be updated\' got ' + e.getMessage());
+            System.assert(e.getMessage().contains('A teachers subject can\'t be changed to hindi'), 'Expected error to contain \'A teachers subject can\'t be changed to hindi\' got ' + e.getMessage());
         }
     }
     
@@ -53,15 +53,15 @@ private class TriggersTest {
         Opportunity opp1 = new Opportunity(Name = 'Test Opp', StageName = 'Prospecting', CloseDate=Date.newInstance(2018, 1, 1));
         insert opp1;
         Id pricebookId = Test.getStandardPricebookId();
-		Product2 prod = new Product2(Name = 'Product X', ProductCode = 'Pro-X', isActive = true);
-		insert prod;
+        Product2 prod = new Product2(Name = 'Product X', ProductCode = 'Pro-X', isActive = true);
+        insert prod;
         PricebookEntry pbEntry = new PricebookEntry(Pricebook2Id = pricebookId, Product2Id = prod.Id, UnitPrice = 100.00, IsActive = true);
-		insert pbEntry;
+        insert pbEntry;
         List<OpportunityLineItem> oppLitems = new List<OpportunityLineItem>();
         for(Integer i = 0; i < 200; i++){
             oppLitems.add(new OpportunityLineItem(OpportunityId = opp1.Id, Quantity = 2, PricebookEntryId = pbEntry.Id, TotalPrice = 200));
         }    
-		insert oppLitems;
+        insert oppLitems;
         opp1.Custom_Status__c = 'Reset';
         update opp1;
         System.assertEquals(0, [SELECT COUNT() FROM OpportunityLineItem]);
@@ -122,8 +122,8 @@ private class TriggersTest {
         }
         try{
             Test.startTest();
-        	update opportunities;
-        	Test.stopTest();
+            update opportunities;
+            Test.stopTest();
         }catch(Exception e){
             System.assert(false, e);
         }
@@ -140,10 +140,10 @@ private class TriggersTest {
         for(Account acc : parentAccounts){
             List<Account> childAccounts = new List<Account>();
             for(Integer i = 0 ; i < 100; i++){
-            	Account ac = new Account(Name = 'Child Test Account' + i + ' - ' + acc.Name, Parent_Account__c = acc.Id);
+                Account ac = new Account(Name = 'Child Test Account' + i + ' - ' + acc.Name, Parent_Account__c = acc.Id);
                 childAccounts.add(ac);
                 childAccountsToInsert.add(ac);
-        	}
+            }
             childAccountsMap.put(acc.Id, childAccounts);
         }
         insert childAccountsToInsert;

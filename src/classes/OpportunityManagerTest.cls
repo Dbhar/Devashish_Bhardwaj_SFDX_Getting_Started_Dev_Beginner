@@ -8,8 +8,8 @@ private class OpportunityManagerTest {
         Opportunity opp1 = new Opportunity(Name = 'Test Opp', Bill_To_Contact__c = con.Id, StageName = 'Prospecting', CloseDate=Date.newInstance(2018, 1, 1));
         Opportunity opp2 = new Opportunity(Name = 'Test Opp', StageName = 'Prospecting', CloseDate=Date.newInstance(2018, 1, 1));
         insert new List<Opportunity>{opp1, opp2};
-        opp1 = [SELECT Id, Bill_To_Contact__c FROM Opportunity WHERE Id = :opp1.Id];
-        opp2 = [SELECT Id FROM Opportunity WHERE Id = :opp2.Id];
+        opp1 = [SELECT Id, Bill_To_Contact__c, Manager__c FROM Opportunity WHERE Id = :opp1.Id];
+        opp2 = [SELECT Id, Bill_To_Contact__c, Manager__c FROM Opportunity WHERE Id = :opp2.Id];
         OpportunityManager.updateManager(new List<Opportunity>{opp1, opp2});
         opp1 = [SELECT Manager__c FROM Opportunity WHERE Id = :opp1.Id];
         System.assertEquals(con.AccountId, opp1.Manager__c);

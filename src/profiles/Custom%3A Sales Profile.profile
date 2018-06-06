@@ -2298,6 +2298,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Teach__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>TestSF1__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

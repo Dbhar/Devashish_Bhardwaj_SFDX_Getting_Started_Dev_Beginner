@@ -1,0 +1,39 @@
+<apex:component controller="GenericQuery">
+    <apex:attribute name="soql" description="soql query for retrieving records" required="required" type="string" assignTo="{!query}"/>
+    <apex:form >
+        <apex:pageBlock title="{!recordName}">
+            <apex:pageMessages rendered="{!hasError}"/>
+            <apex:actionStatus id="loading" startText="" stopText="" onstart="document.body.style.cursor = 'wait';" onstop="document.body.style.cursor = 'default'"/>
+            <apex:pageBlockSection columns="1" id="records" rendered="{!isQuerySuccessful}">
+                <apex:pageBlockTable value="{!records}" var="record">
+                    <apex:repeat value="{!queriedFields}" var="field">
+                        <apex:column onclick="console.log('{!record['id']}');window.open('../{!record['id']}','_blank');" >
+                            {!record[field]}
+                            &nbsp;
+                            <apex:facet name="header">
+                                <apex:commandLink action="{!sort}" value="{!fieldLabels[field]}" reRender="records" status="loading">
+                                    <apex:param name="sortField" assignTo="{!sortField}" value="{!field}"/>
+                                </apex:commandLink>    
+                        	</apex:facet>
+                        </apex:column>
+                    </apex:repeat>
+                </apex:pageBlockTable>
+                <apex:panelGroup >
+                	<apex:actionFunction action="{!goToPageNumber}" name="goToPageNumber" reRender="records" status="loading"/>
+                    <apex:commandLink value="<<First" action="{!first}" reRender="records" rendered="{!hasPrevious}" status="loading"/>
+                    &nbsp;
+                    <apex:commandLink value="<Previous" action="{!previous}" reRender="records" rendered="{!hasPrevious}" status="loading"/>
+                    &nbsp;
+                    <apex:outputLabel for="pageNumer" value="Page"/>
+                    <apex:input type="number" value="{!pageNumber}" onchange="goToPageNumber();"/>
+                    &nbsp;
+                    <apex:outputText value="of {!maxPages}"/>
+                    <apex:commandLink value="Next>" action="{!next}" reRender="records" rendered="{!hasNext}" status="loading"/>
+                    &nbsp;
+                    <apex:commandLink value="Last>>" action="{!last}" reRender="records" rendered="{!hasNext}" status="loading"/>
+                </apex:panelGroup>
+                            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+     </apex:form>
+</apex:component>
