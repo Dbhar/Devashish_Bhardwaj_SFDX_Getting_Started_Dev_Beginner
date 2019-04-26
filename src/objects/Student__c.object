@@ -18,7 +18,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>Student</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>List</actionName>
@@ -26,7 +28,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>Student</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -99,6 +103,17 @@
         <externalId>false</externalId>
         <label>FirstName</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Generate_PDF__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/apex/StudentAsPdf?id=&quot; &amp; Id, &quot;Get PDF File&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Generate PDF</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -186,6 +201,47 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Students</pluralLabel>
+    <recordTypes>
+        <fullName>TGT</fullName>
+        <active>true</active>
+        <label>TGT</label>
+        <picklistValues>
+            <picklist>Sex__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>DateOfBirthShouldNotGreaterToday</fullName>
+        <active>true</active>
+        <errorConditionFormula>TODAY() &lt; DOB__c</errorConditionFormula>
+        <errorDisplayField>DOB__c</errorDisplayField>
+        <errorMessage>Date Of Birth Should Not Be Greater Than Today</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Display_As_Json</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Display As Json</masterLabel>
+        <openType>newWindow</openType>
+        <page>StudentAsJson</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
 </CustomObject>

@@ -1,0 +1,5 @@
+<apex:page standardController="Contact">
+    <div style = "background-color:black;color:white;text-align:center;">
+        <apex:outputText value="{!Contact.Recordtype.Name}"/>
+    </div>   
+</apex:page>

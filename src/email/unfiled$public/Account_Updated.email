@@ -1,0 +1,3 @@
+Hi {!Account.OwnerFullName},
+
+Your Account {!Account.Name} was updated by {!Account.LastModifiedBy}

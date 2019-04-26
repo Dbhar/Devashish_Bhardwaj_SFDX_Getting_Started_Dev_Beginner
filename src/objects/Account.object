@@ -110,6 +110,16 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>ContactIDs__c</fullName>
+        <externalId>false</externalId>
+        <label>ContactIDs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CustomerPriority__c</fullName>
         <externalId>false</externalId>
         <label>Customer Priority</label>
@@ -322,6 +332,10 @@
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
     </listViews>
@@ -379,6 +393,29 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>AccountNumber_Should_Be_Blank_OR_Numeric</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(OR(ISBLANK(AccountNumber), ISNUMBER(AccountNumber)))</errorConditionFormula>
+        <errorDisplayField>AccountNumber</errorDisplayField>
+        <errorMessage>Account Number should be blank or numeric</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BillingZip_Format_Us_UK</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(
+    OR(BillingCountry = &apos;USA&apos;,
+       BillingCountry = &apos;UK&apos;
+    ),
+    NOT(REGEX( BillingPostalCode,
+              &apos;((\\d{5}-\\d{4})|\\d{5})&apos; 
+        )
+    ),
+    FALSE
+)</errorConditionFormula>
+        <errorDisplayField>BillingPostalCode</errorDisplayField>
+        <errorMessage>Billing Zip/Postal code format should be 99999 or 99999-9999 if country is USA or UK</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Billing</fullName>
         <availability>online</availability>

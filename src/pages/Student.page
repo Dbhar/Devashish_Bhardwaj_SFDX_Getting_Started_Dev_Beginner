@@ -1,0 +1,19 @@
+<apex:page standardController="Student__c">
+    <apex:form >
+        <apex:pageBlock id="block" title="Student Edit Page">
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="save" action="{!save}"/>
+                <apex:commandButton value="cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="section1" columns="2">
+                <apex:inputField value="{!Student__c.FirstName__c}"/>
+                <apex:inputField value="{!Student__c.LastName__c}"/>
+                <apex:inputField value="{!Student__c.DOB__c}"/>
+                <apex:inputField value="{!Student__c.Age__c}"/>
+                <apex:inputField value="{!Student__c.Married__c}"/>
+                <apex:inputField value="{!Student__c.WifeName__c}"/>
+                <apex:inputField value="{!Student__c.Class__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>

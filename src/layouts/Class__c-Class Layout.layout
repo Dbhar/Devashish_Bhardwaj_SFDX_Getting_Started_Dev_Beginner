@@ -13,7 +13,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Name__c</field>
+                <field>ClassName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
